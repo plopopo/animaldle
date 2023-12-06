@@ -1,4 +1,4 @@
-
+console.log("hello world");
 function guess()  {
     var userGuess = document.getElementById("userInput").value;
     
