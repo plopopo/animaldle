@@ -1,3 +1,31 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
+body {
+    background-image:url('https://wallpapercave.com/wp/wp10752759.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#title {
+    font-family: 'Pokemon Solid', sans-serif;
+    -webkit-text-fill-color: #FFCB05;
+    -webkit-text-stroke: 3px #3466AF;
+}
+
+#pokemon-title {
+    font-size: 300%;
+    -webkit-text-stroke: 3px #3466AF;
+}
+
+#main-name{
+    font-size: 200%;
+    -webkit-text-stroke: 5px #3466AF;
+}
+#info {
+    text-align:center;
+    background: lightblue;
+}
+
 #title {
     text-align: center;
 }

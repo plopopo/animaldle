@@ -12,15 +12,29 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         
-        <div id = "title" class="sticky-top">
-            <h1>Pokedle</head>
-            <h3>Guess the Pokemon!</h1>
+        <div id = "title" class="container rounded p-5 mx-auto mb-5">
+            <span id = "pokemon-title">
+                <p id = "main-name">Pokédle</p>
+                <p>Guess the Pokémon!</p>
+            </span>
         </div>
-        <div class = "container-sm position-relative top-0 end-0  rounded-pill border border-dark p-5 my-5 " id="colorIndicators">
-            <h3> Color indicators</h3>
-            <p> 🟥 - Incorrect </p>
-            <p> 🟩 - Correct </p>
-            <p> 🟨 - Partially Correct </p>
+        <div class = "container-sm rounded border border-dark p-5 my-5 " id="info">
+            <div class = "row gx-5">
+                <div class = "col-3 container-sm rounded-pill border border-dark bg-light p-5 my-3">
+                    <h3> Color indicators</h3>
+                     <p> 🟥 - Incorrect </p>
+                      <p> 🟩 - Correct </p>
+                    <p> 🟨 - Partially Correct </p>
+                </div>
+                <div class = "col-5 container-sm rounded-pill border border-dark bg-light p-5 my-3">
+                    <h4>Ability clue in</h4>
+                    <p>3 Tries</p>
+                    <h4>First letter of name in </h4>
+                    <p>5 Tries</p>
+                </div>
+            </div>
+
+        <!--<div class = "container-sm rounded-pill border border-dark p-5 my-5 " id="clues">-->
         </div>
         <div id="user">
             <textarea id="userInput">Guess the Pokemon...</textarea>
