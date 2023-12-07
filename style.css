@@ -17,13 +17,28 @@ body {
     -webkit-text-stroke: 3px #3466AF;
 }
 
+
 #main-name{
     font-size: 200%;
     -webkit-text-stroke: 5px #3466AF;
+    transition: all 0.25s ease-in;
+
+}
+
+#main-name:hover {
+    font-size: 225%;
+    transition: all 0.5s ease-in
 }
 #info {
     text-align:center;
-    background: lightblue;
+    background: none;
+    transition: all 0.75s ease-in
+}
+
+#info:hover {
+    background: lightblue 50%;
+    transition: all 0.75s ease-in
+    
 }
 
 #title {
