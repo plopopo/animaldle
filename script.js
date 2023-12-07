@@ -11,4 +11,18 @@ function guess()  {
             turn the ith box red
 */
 }
+
+function getPokemon() {
+    const url = 'https://pokeapi.co/api/v2/pokemon/';
+    fetch(url + 'charizard')
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data);
+        }).catch((err) => {
+            console.log("Pokemon not found", err);
+        });
+
+}
+
+getPokemon();
  
