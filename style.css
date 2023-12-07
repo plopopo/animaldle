@@ -19,6 +19,7 @@ body {
 
 
 #main-name{
+    /* position: absolute; */
     font-size: 200%;
     -webkit-text-stroke: 5px #3466AF;
     transition: all 0.25s ease-in;
@@ -43,4 +44,16 @@ body {
 
 #title {
     text-align: center;
+}
+
+#guesses {
+    background: none;
+    text-align: center;
+    color: black;
+    
+}
+
+#guesses-header {
+    background:none;
+    color: black;
 }
