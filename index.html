@@ -18,7 +18,7 @@
                 <p>Guess the Pokémon!</p>
             </span>
         </div>
-        <div class = "container-sm rounded border border-dark p-5 my-5 " id="info">
+        <div class = "container-sm rounded p-5 my-5 " id="info">
             <div class = "row gx-5">
                 <div class = "col-3 container-sm rounded-pill border border-dark bg-light p-5 my-3">
                     <h3> Color indicators</h3>
@@ -36,65 +36,66 @@
 
         <!--<div class = "container-sm rounded-pill border border-dark p-5 my-5 " id="clues">-->
         </div>
-        <div id="user" class = "container-sm rounded-pill border border-dark p-5 my-5">
+        <div id="user" class = "container-sm rounded-pill border border-dark w-50 p-5 my-5">
           <div class = "row justify-content-center">
             <input type="text" class = " col-9 align-self-center border rounded-pill border-dark" id="userInput" placeholder="Guess the Pokemon..."></input>
-            <button id = "userButton" class = "col-1 align-self-center container border rounded-pill border-dark" onclick="guess()">Go!</button>
+            <button id = "userButton" class = "col-2 align-self-center container border rounded-pill border-dark overflow-hidden" onclick="guess()">Go!</button>
           </div>
         </div>
-        <div class="container px-2" id = "guesses">
-            <div class="row gx-5" id = "guesses-header">
-              <div class="col p-4 mx-4 container-sm border-bottom border-dark">
+        <div class="container-fluid text-center px-4" id = "guesses">
+            <div id = "guesses-header" class="row justify-content-md-center">
+              <div class="col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
                 Name
               </div>
-              <div class="col p-4 mx-4 container-sm border-bottom border-dark">
+              <div class="col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
                 Type 1
               </div>
-              <div class="col p-4 mx-4 container-sm border-bottom border-dark">
+              <div class="col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
                 Type 2
               </div>
-              <div class ="col p-4 mx-4 container-sm border-bottom border-dark"> 
+              <div class ="col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light"> 
                 Habitat
               </div>
-              <div class = "col p-4 mx-4 container-sm border-bottom border-dark">
+              <div class = "col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
                 Color(s)
               </div>
-              <div class = "col p-4 mx-4 container-sm border-bottom border-dark">
-                Evolution Stage
+              <div class = "col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
+                Evolution<br>Stage
               </div>
-              <div class = "col p-4 mx-4 container-sm border-bottom border-dark">
+              <div class = "col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
                 Height
               </div>
-              <div class = "col p-4 mx-4 container-sm border-bottom border-dark">
+              <div class = "col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
                 Weight
               </div>
             </div>
-            <div class="row">
-              <div class="col">
+            <div class="row justify-content-md-center">
+              <div class="col-1 p-5 mx-3 my-5 container-sm rounded border border-dark bg-primary">
+                
+              </div>
+              <div class="col-1 p-5 mx-3 my-5  container-sm rounded border border-dark bg-primary">
+                how 
+              </div>
+              <div class="col-1 p-5 mx-3 my-5 container-sm rounded border border-dark bg-primary">
+                are
+              </div>
+              <div class ="col-1 p-5 mx-3 my-5 container-sm rounded border border-dark bg-primary"> 
+                you
+              </div>
+              <div class = "col-1 p-5 mx-3 my-5 container-sm rounded border border-dark bg-primary">
                 hi
               </div>
-              <div class="col">
-
+              <div class = "col-1 p-5 mx-3 my-5 container-sm rounded border border-dark bg-primary">
+                hi
               </div>
-              <div class="col">
-                
+              <div class = "col-1 p-5 mx-3 my-5 container-sm rounded border border-dark bg-primary">
+                hi
               </div>
-              <div class ="col"> 
-                
-              </div>
-              <div class = "col">
-                
-              </div>
-              <div class = "col">
-                
-              </div>
-              <div class = "col">
-                
-              </div>
-              <div class = "col">
-                
+              <div class = "col-1 p-5 mx-3 my-5 container-sm rounded border border-dark bg-primary">
+                hi
               </div>
             </div>
+            
           </div>
     </body>
 
