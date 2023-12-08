@@ -1,7 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
 body {
-    background-image:url('https://wallpapercave.com/wp/wp10752759.jpg');
+    background-image: crossorigin="anonymous"url('https://wallpapercave.com/wp/wp10752759.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -46,14 +46,30 @@ body {
     text-align: center;
 }
 
+#user {
+    font-size: 200%;
+    background: lightblue;
+}
+
+#userButton {
+    background:white;
+    color: black;
+    transition: all 0.1s ease-in;
+}
+
+#userButton:hover {
+    background: lightblue;
+    color: white;
+    transition: all 0.1s ease-in;
+}
 #guesses {
     background: none;
     text-align: center;
-    color: black;
+    color: blue;
     
 }
 
 #guesses-header {
     background:none;
     color: black;
-}
+} 
