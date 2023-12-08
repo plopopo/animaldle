@@ -1,9 +1,13 @@
-@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
+@font-face{font-family:pokemon solid;font-style:normal;font-weight:400;src:local('Pokemon Solid'),url('https://fonts.cdnfonts.com/s/17890/Pokemon Solid.woff') format('woff')}
 body {
-    background-image:url('https://wallpapercave.com/wp/wp10752759.jpg');
+    background-image:url('latios-background.png');
+    /* background-image:url('rayquaza_day-background.png'); */
+    /* background-image:url('rayquaza_sunset-background.png'); */
     background-repeat: no-repeat;
-    background-attachment: fixed;
+
+    /*images rayquaza_day and rayquaza_sunset both need background-attachment of scroll, while latios needs fixed*/
+    background-attachment:fixed;
     background-size: cover;
 }
 #title {
@@ -17,15 +21,62 @@ body {
     -webkit-text-stroke: 3px #3466AF;
 }
 
+
 #main-name{
+    /* position: absolute; */
     font-size: 200%;
     -webkit-text-stroke: 5px #3466AF;
+    transition: all 0.25s ease-in;
+
+}
+
+#main-name:hover {
+    font-size: 225%;
+    transition: all 0.5s ease-in
 }
 #info {
     text-align:center;
-    background: lightblue;
+    background: none;
+    transition: all 0.75s ease-in
 }
+
+/*
+#info:hover {
+    background: lightblue 50%;
+    transition: all 0.75s ease-in
+    
+}*/
 
 #title {
     text-align: center;
 }
+
+#user {
+    font-size: 200%;
+    background: lightblue;
+}
+
+#userButton {
+    background:white;
+    color: black;
+    transition: all 0.1s ease-in;
+}
+
+#userButton:hover {
+    background: lightblue;
+    color: white;
+    transition: all 0.1s ease-in;
+}
+
+#guesses {
+    background: none;
+    text-align: center;
+    color: blue;    
+}
+
+
+#guesses-header {
+    color: white;
+    font-size: 155%;
+    font-weight:bold;
+} 
