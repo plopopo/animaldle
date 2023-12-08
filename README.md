@@ -1,2 +1,2 @@
-# animaldle
-animaldle
+# pokemondle
+pokemondle
