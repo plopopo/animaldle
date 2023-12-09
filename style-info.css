@@ -10,12 +10,43 @@ body {
     /*images rayquaza_day and rayquaza_sunset both need background-attachment of scroll, while latios needs fixed*/
     background-attachment:fixed;
     background-size: cover;
-}
-
-h1, h3{
+    
+    font-family:'Aldrich';
     text-align:center;
+}
+.title-font {
+    font-family: 'Pokemon Solid', sans-serif;
+    -webkit-text-fill-color: #FFCB05;
+    -webkit-text-stroke: 3px #3466AF;
+    font-size: 300%;
 }
 
 #credits {
-    background-color:cornsilk;
+    background-color:azure;
+    opacity:0.85;
+}
+
+#main-name{
+    /* position: absolute; */
+    font-size: 200%;
+    -webkit-text-stroke: 5px #3466AF;
+    transition: all 0.25s ease-in;
+
+}
+
+#main-name:hover {
+    font-size: 225%;
+    transition: all 0.5s ease-in
+}
+
+
+#home {
+    -webkit-text-fill-color: #FFCB05;
+    -webkit-text-stroke: 3px #3466AF;
+    transition: all 0.1s ease-in;
+}
+
+#home:hover {
+    opacity: 0.75;
+    transition: all 0.1s ease-in;
 }
