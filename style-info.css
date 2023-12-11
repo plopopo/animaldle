@@ -43,6 +43,7 @@ body {
 #home {
     -webkit-text-fill-color: #FFCB05;
     -webkit-text-stroke: 3px #3466AF;
+    text-decoration: none;
     transition: all 0.1s ease-in;
 }
 
