@@ -52,13 +52,8 @@ body {
     transition: all 0.75s ease-in
 }
 
-#instructions {
-    text-align:left;
-    vertical-align: middle;
-}
-
-#color-indicators,#clues {
-    background-color:azure
+#instructions, #color-indicator, #clues {
+    background-color: azure;
 }
 
 /*
