@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <title>Play Pokedle!</title>
+
+      <!-- Aldrich Font -->
+      <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+      <!-- Bootstrap  -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <!-- Bootstrap CSS -->
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
-        <link rel="stylesheet" href="style.css">
-        <title>Play Pokedle!</title>
+      
+      <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <!-- Bootstrap JavaScript -->
-        <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
-        
         <div id = "title" class="container rounded p-5 mx-auto mb-5">
             <span id = "pokemon-title">
                 <p id = "main-name">Pokédle</p>
                 <p>Guess the Pokémon!</p>
-                <a href=credits.html class="position-absolute p-5 top-0 end-0">i</a>
+                <a id = "credits" href=credits.html class="position-absolute p-5 top-0 end-0">i</a>
             </span>
         </div>
         <div class = "container-sm rounded p-5 my-5 " id="info">
-            <div class = "row gx-5">
-                <div class = "col-3 container-sm rounded-pill border border-dark bg-light p-5 my-3">
-                    <h3> Color indicators</h3>
-                     <p> 🟥 - Incorrect </p>
-                      <p> 🟩 - Correct </p>
-                    <p> 🟨 - Partially Correct </p>
-                </div>
-                <div class = "col-5 container-sm rounded-pill border border-dark bg-light p-5 my-3">
-                    <h4>Ability clue in</h4>
-                    <p>3 Tries</p>
-                    <h4>First letter of name in </h4>
-                    <p>5 Tries</p>
-                </div>
+          <div class = "row gx-5">
+            <div id = "instructions" class = "col container-sm rounded-5 border border-dark p-5 my-3">
+              <div id = "instructions" >
+                <p>Type in any pokemon from <strong>Generation 3</strong> to get started.<br></p>
+                <p>Each aspect of your guessed pokemon (Type 1, Type 2, etc.) Will be compared to the correct pokemon.<br></p>
+                <p>(For example, if your guessed pokemon's <strong>Color(s)</strong> matches with the actual pokemon, the respective box will turn green)</p>
+              </div>
             </div>
-
-        <!--<div class = "container-sm rounded-pill border border-dark p-5 my-5 " id="clues">-->
+          </div>
+          <div class = "row gx-5">
+            <div id = "color-indicator" class = "col-4 container-sm rounded-pill border border-dark p-5 my-3">
+              <h3> Color indicators</h3>
+              <p> 🟥 - Incorrect </p>
+              <p> 🟩 - Correct </p>
+              <p> 🟨 - Partially Correct </p>
+            </div>
+            <div id = "clues" class = "col-4 container-sm rounded-pill border border-dark p-5 my-3">
+              <h4>Ability clue in</h4>
+              <p>3 Tries</p>
+              <h4>First letter of name in </h4>
+              <p>5 Tries</p>
+            </div>
+          </div>          
         </div>
 
 <!--         <div id="user">
@@ -48,7 +54,6 @@
         </div> -->
         
         <script src="script.js"></script>
-
         <div id="user" class = "container-sm rounded-pill border border-dark w-50 p-5 my-5">
           <div class = "row justify-content-center">
             <input type="text" class = " col-9 align-self-center border rounded-pill border-dark" id="userInput" placeholder="Guess the Pokemon..."></input>
@@ -58,7 +63,7 @@
         <div class="container-fluid text-center px-4" id = "guesses">
             <div id = "guesses-header" class="row justify-content-md-center">
               <div class="col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
-                Name
+                Pokemon
               </div>
               <div class="col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
                 Type 1
