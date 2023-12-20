@@ -9,18 +9,18 @@ body {
     /*images rayquaza_day and rayquaza_sunset both need background-attachment of scroll, while latios needs fixed*/
     background-attachment:fixed;
     background-size: cover;
+
+    font-family: 'Aldrich';
 }
 #title {
     font-family: 'Pokemon Solid', sans-serif;
     -webkit-text-fill-color: #FFCB05;
     -webkit-text-stroke: 3px #3466AF;
 }
-
 #pokemon-title {
     font-size: 300%;
     -webkit-text-stroke: 3px #3466AF;
 }
-
 
 #main-name{
     /* position: absolute; */
@@ -34,10 +34,26 @@ body {
     font-size: 225%;
     transition: all 0.5s ease-in
 }
+
+#credits {
+    -webkit-text-fill-color: #FFCB05;
+    -webkit-text-stroke: 3px #3466AF;
+    transition: all 0.1s ease-in;
+}
+
+#credits:hover {
+    opacity: 0.75;
+    transition: all 0.1s ease-in;
+}
+
 #info {
     text-align:center;
     background: none;
     transition: all 0.75s ease-in
+}
+
+#instructions, #color-indicator, #clues {
+    background-color: azure;
 }
 
 /*
@@ -53,7 +69,7 @@ body {
 
 #user {
     font-size: 200%;
-    background: lightblue;
+    background: azure;
 }
 
 #userButton {
