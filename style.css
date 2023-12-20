@@ -96,3 +96,8 @@ body {
     font-size: 155%;
     font-weight:bold;
 } 
+
+.guesses img {
+    object-fit: fill;
+    width: 50%;
+}
