@@ -111,6 +111,7 @@ function getPokemon() {
 
 }
 
+
 function setPokemon() { //creates the URL using “value”
     var id = getRandomInt();
     var url = 'https://pokeapi.co/api/v2/pokemon/';
