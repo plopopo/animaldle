@@ -61,12 +61,10 @@
         </div> -->
         
         <div id="user" class = "container-sm rounded-pill border border-dark w-50 p-5 my-5">
-          <form autocomplete="off" >
             <div class = "row justify-content-center">
-              <input type="text" class = "autocomplete col-9 align-self-center border rounded-pill border-dark" id="userInput" placeholder="Guess the Pokemon..."></input>
-              <button id = "userButton" class = "col-2 align-self-center container border rounded-pill border-dark overflow-hidden" onclick="guess()">Go!</button>
+              <input type="text" class = "col-9 align-self-center border rounded-pill border-dark" id="userInput" placeholder="Guess the Pokemon..."></input>
+              <button id = "userButton" class = "col-2 align-self-center container border rounded-pill border-dark overflow-hidden" onclick="getPokemon()">Go!</button>
             </div>
-          </form>
         </div>
         <div class="container-fluid text-center px-4" id = "guesses">
             <div id = "guesses-header" class="row justify-content-md-center">
