@@ -12,6 +12,7 @@ body {
 
     font-family: 'Aldrich';
 }
+
 #title {
     font-family: 'Pokemon Solid', sans-serif;
     -webkit-text-fill-color: #FFCB05;
@@ -28,11 +29,15 @@ body {
     -webkit-text-stroke: 5px #3466AF;
     transition: all 0.25s ease-in;
 
+    animation: slideInDown;
+    animation-duration: 2s;
+
 }
 
-#main-name:hover {
-    font-size: 225%;
-    transition: all 0.5s ease-in
+#sub-name{
+    animation: tada;
+    animation-delay: 2s;
+    animation-duration: 1s;
 }
 
 #credits {
@@ -42,8 +47,10 @@ body {
 }
 
 #credits:hover {
-    opacity: 0.75;
-    transition: all 0.1s ease-in;
+    animation:pulse;
+    animation-duration: .75s;
+
+    -webkit-text-fill-color: #3466AF;
 }
 
 #info {
@@ -54,6 +61,7 @@ body {
 
 #instructions, #color-indicator, #clues {
     background-color: azure;
+    box-shadow: 5px 5px 50px 5px;
 }
 
 /*
@@ -70,6 +78,8 @@ body {
 #user {
     font-size: 200%;
     background: azure;
+    box-shadow: 5px 5px 50px 5px;
+
 }
 
 #userButton {
