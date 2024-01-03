@@ -14,9 +14,10 @@
 
       <link rel="stylesheet" href="style.css">
       <script src="script.js"></script>
-      
-      <link rel="stylesheet" href="style.css">
 
+      <link rel="stylesheet" href="autocomplete.css">
+      <script src="autocomplete.js"></script>
+      
     </head>
     <body>
         <div id = "title" class="container rounded p-5 mx-auto mb-5">
@@ -60,7 +61,7 @@
         <div class="pokemonBox">     
         </div> -->
         
-        <div id="user" class = "container-sm rounded-pill border border-dark w-50 p-5 my-5">
+        <div id="user" class = "autocomplete container-sm rounded-pill border border-dark w-50 p-5 my-5">
             <div class = "row justify-content-center">
               <input type="text" class = "col-9 align-self-center border rounded-pill border-dark" id="userInput" placeholder="Guess the Pokemon..."></input>
               <button id = "userButton" class = "col-2 align-self-center container border rounded-pill border-dark overflow-hidden" onclick="getPokemon()">Go!</button>

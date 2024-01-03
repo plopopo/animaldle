@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
 });
 
 function getPokemon() {
-    var name = document.getElementById('userInput').value;
+    var name = document.getElementById('userInput').value.toLowerCase();
     var url = 'https://pokeapi.co/api/v2/pokemon/';
     // console.log(name);
 
