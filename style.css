@@ -59,8 +59,13 @@ body {
     transition: all 0.75s ease-in
 }
 
-#instructions, #color-indicator, #clues {
-    background-color: azure;
+#instructions {
+    background-color: #FFB6C1;
+    box-shadow: 5px 5px 50px 5px;
+}
+
+#color-indicator, #clues {
+    background-color:  #D1FFFF;
     box-shadow: 5px 5px 50px 5px;
 }
 
