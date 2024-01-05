@@ -17,6 +17,14 @@ window.addEventListener('load', () => {
 
 function getPokemon() {
     var name = document.getElementById('userInput').value.toLowerCase();
+
+    //Removes guessed pokemon from autocomplete so user doesn't think they can guess it again
+    var pokemonIndex = pokemon.indexOf(name);
+    pokemon.splice(pokemonIndex, 1);
+
+    //Resets input field value to nothing, so user doesn't have to delete previous answer to type new one
+    document.getElementById('userInput').value = "";
+    
     var url = 'https://pokeapi.co/api/v2/pokemon/';
     // console.log(name);
 

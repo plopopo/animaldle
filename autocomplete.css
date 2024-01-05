@@ -14,7 +14,7 @@
   right: 0;
 
   overflow: auto;
-  max-height: 500px;
+  max-height: 275px;
 }
 
 .autocomplete-items div {
