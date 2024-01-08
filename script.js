@@ -15,10 +15,12 @@ window.addEventListener('load', () => {
     document.getElementById('userButton').addEventListener('click', getPokemon());
 });
 
-function getPokemon() {
-    var name = document.getElementById('userInput').value;
-    var url = 'https://pokeapi.co/api/v2/pokemon/';
-    // console.log(name);
+function getPokemon(n, u) {
+    var name = n;
+    var url = u;
+
+    console.log(name);
+    console.log(url);
 
     var pokeinfo1 = {
         name: null,
@@ -28,7 +30,8 @@ function getPokemon() {
         height: null,
         habitat: null,
         color: null,
-        evolution: null
+        evolution: null,
+        img: null
     }; 
 
     fetch(url + name)
@@ -40,21 +43,13 @@ function getPokemon() {
             pokeinfo1.type1 = data.types['0'].type.name.toUpperCase();
             pokeinfo1.weight = parseInt(data.weight)/10 * 2.20462;
             pokeinfo1.height = parseInt(data.height)*10;
+            pokeinfo1.img = data.sprites.other['official-artwork'].front_default;
 
             if (Object.keys(data.types).length >= 2) {
                 pokeinfo1.type2 = data.types['1'].type.name.toUpperCase();
             } else {
                 pokeinfo1.type2 = "NONE";
-            }
-
-            document.querySelector(".inputName").innerHTML = `
-            <img src="${data.sprites.other['official-artwork'].front_default}" alt="${pokeinfo1.name}">
-            `
-            document.querySelector(".inputType1").innerHTML = pokeinfo1.type1;
-            document.querySelector(".inputType2").innerHTML = pokeinfo1.type2;
-            document.querySelector(".inputWeight").innerHTML = pokeinfo1.weight.toFixed(2) + "lbs";
-            document.querySelector(".inputHeight").innerHTML = pokeinfo1.height + "cm";
-            
+            }         
 
             // document.querySelector(".inputHabitat").innerHTML = data
             // document.querySelector(".inputColor").innerHTML =
@@ -67,7 +62,7 @@ function getPokemon() {
     fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
         .then(response => response.json())
         .then((data1) => {
-            console.log(data1);
+            //console.log(name);
 
             pokeinfo1.color = data1.color.name.toUpperCase();
 
@@ -84,53 +79,135 @@ function getPokemon() {
                 fetch("https://pokeapi.co/api/v2/pokemon-species/" + data1.evolves_from_species.name)
                 .then(response => response.json())
                 .then((evo) => {
-                    console.log(evo.evolves_from_species);
+                    //console.log(evo.evolves_from_species);
                     if (evo.evolves_from_species == null) {
                         pokeinfo1.evolution = '2';
                     } else {
                         pokeinfo1.evolution = '3';
                     }
 
-                    document.querySelector(".inputEvo").innerHTML = pokeinfo1.evolution;
-
                 }).catch((err) => {
                     console.log("Pokemon not found", err);
                 });
             }
             
-            console.log(pokeinfo1.evolution + "oop");
-
-            document.querySelector(".inputHabitat").innerHTML = pokeinfo1.habitat;
-            document.querySelector(".inputColor").innerHTML = pokeinfo1.color;
+            //console.log(pokeinfo1.evolution + "oop");
 
         }).catch((err) => {
             console.log("Pokemon not found", err);
         });
 
-
-
+    //console.log(pokeinfo1);
+    
+    return (pokeinfo1);
 }
 
-function setPokemon() { //creates the URL using “value”
+
+    function setBoxes() {
+        var name = document.getElementById('userInput').value;
+        var url = 'https://pokeapi.co/api/v2/pokemon/';
+        
+        console.log(name);
+
+        var info = getPokemon(name, url);
+
+        console.log(info);
+
+        console.log(info['type1']);
+        
+        document.querySelector(".inputName").innerHTML = `
+            <img src="${info.img}" alt="${info.name}">
+            `
+        document.querySelector(".inputType1").innerHTML = info.type1;
+        document.querySelector(".inputType2").innerHTML = info.type2;
+        document.querySelector(".inputWeight").innerHTML = info.weight.toFixed(2) + "lbs";
+        document.querySelector(".inputHeight").innerHTML = info.height + "cm";
+        document.querySelector(".inputEvo").innerHTML = info.evolution;
+        document.querySelector(".inputHabitat").innerHTML = info.habitat;
+        document.querySelector(".inputColor").innerHTML = info.color;
+
+    }
+
+
+
+function comparePokemon() { //creates the URL using “value”
     var id = getRandomInt();
     var url = 'https://pokeapi.co/api/v2/pokemon/';
     var name = id;
+
+    var pokeinfo1 = getPokemon()
+
+    var pokeinfo2 = {
+        name: null,
+        type1: null,
+        type2: null,
+        weight: null,
+        height: null,
+        habitat: null,
+        color: null,
+        evolution: null
+    }; 
     
-    fetch(url + name) 
-        .then(response => response.json) 
+    fetch(url + name)
+        .then(response => response.json())
         .then((data) => {
+            //console.log(data);
+            
+            pokeinfo2.name = data.name;
+            pokeinfo2.type1 = data.types['0'].type.name.toUpperCase();
+            pokeinfo2.weight = parseInt(data.weight)/10 * 2.20462;
+            pokeinfo2.height = parseInt(data.height)*10;
 
-            var pokeinfo2 = {
-                name: data.name,
-                type1: data.types['0'].type.name.toUpperCase(),
-                type2: data.types['1'].type.name.toUpperCase(),
-                weight: parseInt(data.weight)/10 * 2.20462,
-                height: parseInt(data.height)*10
-            };
+            if (Object.keys(data.types).length >= 2) {
+                pokeinfo1.type2 = data.types['1'].type.name.toUpperCase();
+            } else {
+                pokeinfo1.type2 = "NONE";
+            }
 
+        }).catch((err) => {
+            console.log("Pokemon not found", err);
         });
-}
- 
+    
+    fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
+        .then(response => response.json())
+        .then((data1) => {
+            console.log(data1);
+
+            pokeinfo2.color = data2.color.name.toUpperCase();
+
+            if (data2.habitat != null) {
+                pokeinfo2.habitat = data2.habitat.name.toUpperCase();
+            } else {
+                pokeinfo2.habitat = "N/A";
+            }
+
+            if (data1.evolves_from_species == null) {
+                pokeinfo2.evolution = '1';
+                document.querySelector(".inputEvo").innerHTML = pokeinfo2.evolution;
+            } else {
+                fetch("https://pokeapi.co/api/v2/pokemon-species/" + data1.evolves_from_species.name)
+                .then(response => response.json())
+                .then((evo) => {
+                    console.log(evo.evolves_from_species);
+                    if (evo.evolves_from_species == null) {
+                        pokeinfo2.evolution = '2';
+                    } else {
+                        pokeinfo2.evolution = '3';
+                    }
+
+                    document.querySelector(".inputEvo").innerHTML = pokeinfo2.evolution;
+
+                }).catch((err) => {
+                    console.log("Pokemon not found", err);
+                });
+            }
+
+        }).catch((err) => {
+            console.log("Pokemon not found", err);
+        });
+ }
+
+
 function getRandomInt() {
     return Math.floor(Math.random() * 809) + 1;
-  }
+}
