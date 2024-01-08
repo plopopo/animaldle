@@ -23,15 +23,15 @@ function getPokemon(n, u) {
     console.log(url);
 
     var pokeinfo1 = {
-        name: null,
-        type1: null,
-        type2: null,
-        weight: null,
-        height: null,
-        habitat: null,
-        color: null,
-        evolution: null,
-        img: null
+        name: "poop",
+        type1: "poop",
+        type2: "poop",
+        weight: "poop",
+        height: "poop",
+        habitat: "poop",
+        color: "poop",
+        evolution: "poop",
+        img: "poop"
     }; 
 
     fetch(url + name)
@@ -107,9 +107,9 @@ function getPokemon(n, u) {
         var name = document.getElementById('userInput').value;
         var url = 'https://pokeapi.co/api/v2/pokemon/';
         
-        console.log(name);
+        //console.log(name);
 
-        var info = getPokemon(name, url);
+        var info = Object.assign(getPokemon(name, url));
 
         console.log(info);
 
