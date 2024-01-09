@@ -131,6 +131,8 @@ function getPokemon(n, u) {
 
 
 function comparePokemon() { //creates the URL using “value”
+
+function setPokemon() { //creates the URL using “value”
     var id = getRandomInt();
     var url = 'https://pokeapi.co/api/v2/pokemon/';
     var name = id;
@@ -211,3 +213,5 @@ function comparePokemon() { //creates the URL using “value”
 function getRandomInt() {
     return Math.floor(Math.random() * 809) + 1;
 }
+}
+
