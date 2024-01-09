@@ -109,11 +109,11 @@ function getPokemon(n, u) {
         
         //console.log(name);
 
-        var info = Object.assign(getPokemon(name, url));
+        var info = getPokemon(name, url);
 
         console.log(info);
 
-        console.log(info['type1']);
+        console.log(info.habitat);
         
         document.querySelector(".inputName").innerHTML = `
             <img src="${info.img}" alt="${info.name}">
