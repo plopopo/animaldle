@@ -2,7 +2,7 @@
 @font-face{font-family:pokemon solid;font-style:normal;font-weight:400;src:local('Pokemon Solid'),url('https://fonts.cdnfonts.com/s/17890/Pokemon Solid.woff') format('woff')}
 
 body {
-    background-image:url('latios-background.png');
+    /* background-image:url('latios-background.png'); */
     /* background-image:url('rayquaza_day-background.png'); */
     /* background-image:url('rayquaza_sunset-background.png'); */
     background-repeat: no-repeat;
@@ -14,7 +14,7 @@ body {
     font-family:'Aldrich';
     text-align:center;
 }
-.title-font {
+.title-font{
     font-family: 'Pokemon Solid', sans-serif;
     -webkit-text-fill-color: #FFCB05;
     -webkit-text-stroke: 3px #3466AF;
@@ -24,6 +24,9 @@ body {
 #credits {
     background-color:azure;
     opacity:0.85;
+
+    box-shadow: 5px 5px 50px 5px;
+
 }
 
 #main-name{
@@ -32,11 +35,10 @@ body {
     -webkit-text-stroke: 5px #3466AF;
     transition: all 0.25s ease-in;
 
-}
+    animation: tada;
+    animation-delay: .25s;
+    animation-duration: 1s;
 
-#main-name:hover {
-    font-size: 225%;
-    transition: all 0.5s ease-in
 }
 
 
@@ -48,6 +50,9 @@ body {
 }
 
 #home:hover {
-    opacity: 0.75;
-    transition: all 0.1s ease-in;
+    -webkit-text-fill-color: #3466AF;
+    
+    animation:pulse;
+    animation-duration: .75s;
+
 }

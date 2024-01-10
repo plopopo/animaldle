@@ -12,6 +12,7 @@ body {
 
     font-family: 'Aldrich';
 }
+
 #title {
     font-family: 'Pokemon Solid', sans-serif;
     -webkit-text-fill-color: #FFCB05;
@@ -28,11 +29,15 @@ body {
     -webkit-text-stroke: 5px #3466AF;
     transition: all 0.25s ease-in;
 
+    animation: slideInDown;
+    animation-duration: 2s;
+
 }
 
-#main-name:hover {
-    font-size: 225%;
-    transition: all 0.5s ease-in
+#sub-name{
+    animation: tada;
+    animation-delay: 2s;
+    animation-duration: 1s;
 }
 
 #credits {
@@ -42,8 +47,10 @@ body {
 }
 
 #credits:hover {
-    opacity: 0.75;
-    transition: all 0.1s ease-in;
+    animation:pulse;
+    animation-duration: .75s;
+
+    -webkit-text-fill-color: #3466AF;
 }
 
 #info {
@@ -52,8 +59,14 @@ body {
     transition: all 0.75s ease-in
 }
 
-#instructions, #color-indicator, #clues {
-    background-color: azure;
+#instructions {
+    background-color: #FFB6C1;
+    box-shadow: 5px 5px 50px 5px;
+}
+
+#color-indicator, #clues {
+    background-color:  #D1FFFF;
+    box-shadow: 5px 5px 50px 5px;
 }
 
 /*
@@ -70,6 +83,8 @@ body {
 #user {
     font-size: 200%;
     background: azure;
+    box-shadow: 5px 5px 50px 5px;
+
 }
 
 #userButton {
@@ -108,4 +123,18 @@ body {
 
 .difference2 {
     background: greenyellow !important;
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #D1FFFF;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }

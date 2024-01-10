@@ -91,14 +91,12 @@ async function setBoxes() {
         document.querySelector(".inputevolution").innerHTML = info.evolution;
         document.querySelector(".inputhabitat").innerHTML = info.habitat;
         document.querySelector(".inputcolor").innerHTML = info.color;
-
-    // Rest of your code to display the information in HTML elements
 }
 
 
 
-
-async function comparePokemon() { //creates the URL using “value”
+async function comparePokemon() { 
+    var id = getRandomInt();
     var url = 'https://pokeapi.co/api/v2/pokemon/';
     var name = id;
 
