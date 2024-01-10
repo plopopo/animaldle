@@ -62,8 +62,8 @@
 
         <div id="user" class = "container-sm rounded-pill border border-dark w-50 p-5 my-5">
             <div class = "row justify-content-center">
-              <input type="text" class = "col-9 align-self-center border rounded-pill border-dark" value="banana" id="userInput" placeholder="Guess the Pokemon..."></input>
-              <button id = "userButton" class = "col-2 align-self-center container border rounded-pill border-dark overflow-hidden" onclick="setBoxes()">Go!</button>
+              <input type="text" class = "col-9 align-self-center border rounded-pill border-dark" id="userInput" placeholder="Guess the Pokemon..."></input>
+              <button id = "userButton" class = "col-2 align-self-center container border rounded-pill border-dark overflow-hidden" onclick="setBoxes(); comparePokemon()">Go!</button>
             </div>
         </div>
         <div class="container-fluid text-center px-4" id = "guesses">
@@ -95,27 +95,27 @@
             </div>
             <div class="row justify-content-md-center">
 
-              <div class="col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputName guesses">              
+              <div class="col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputimg guesses">              
               </div>
-              <div class="col-1 p-3 mx-3 my-5  container-sm rounded border border-dark bg-primary inputType1">
+              <div class="col-1 p-3 mx-3 my-5  container-sm rounded border border-dark bg-primary inputtype1">
                 <!-- grass  -->
               </div>
-              <div class="col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputType2">
+              <div class="col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputtype2">
                 <!-- poison -->
               </div>
-              <div class ="col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputHabitat"> 
+              <div class ="col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputhabitat"> 
                 <!-- grasslands -->
               </div>
-              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputColor">
+              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputcolor">
                 <!-- blue, purple -->
               </div>
-              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputEvo">
+              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputevolution">
                 <!-- 3 -->
               </div>
-              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputHeight">
+              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputheight">
                 <!-- 5'11'' -->
               </div>
-              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputWeight">
+              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputweight">
                 <!-- 88.5lbs -->
               </div>
             </div>

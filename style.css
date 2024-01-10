@@ -101,3 +101,11 @@ body {
     object-fit: fill;
     width: 50%;
 }
+
+.difference1 {
+    background: red !important;
+}
+
+.difference2 {
+    background: greenyellow !important;
+}

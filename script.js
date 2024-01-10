@@ -1,3 +1,5 @@
+const id = getRandomInt();
+
 function guess()  {
     var userGuess = document.getElementById("userInput").value;
     
@@ -15,199 +17,118 @@ window.addEventListener('load', () => {
     document.getElementById('userButton').addEventListener('click', getPokemon());
 });
 
-function getPokemon(n, u) {
+async function getPokemon(n, u) {
     var name = n;
     var url = u;
 
-    console.log(name);
-    console.log(url);
+    let pokeinfo1 = {};
 
-    var pokeinfo1 = {
-        name: "poop",
-        type1: "poop",
-        type2: "poop",
-        weight: "poop",
-        height: "poop",
-        habitat: "poop",
-        color: "poop",
-        evolution: "poop",
-        img: "poop"
-    }; 
+    try {
+        const response = await fetch(url + name);
+        const data = await response.json();
 
-    fetch(url + name)
-        .then(response => response.json())
-        .then((data) => {
-            //console.log(data);
-            
-            pokeinfo1.name = data.name;
-            pokeinfo1.type1 = data.types['0'].type.name.toUpperCase();
-            pokeinfo1.weight = parseInt(data.weight)/10 * 2.20462;
-            pokeinfo1.height = parseInt(data.height)*10;
-            pokeinfo1.img = data.sprites.other['official-artwork'].front_default;
+        pokeinfo1.name = data.name;
+        pokeinfo1.type1 = data.types[0].type.name.toUpperCase();
+        pokeinfo1.weight = parseInt(data.weight) / 10 * 2.20462;
+        pokeinfo1.height = parseInt(data.height) * 10;
+        pokeinfo1.img = data.sprites.other['official-artwork'].front_default;
 
-            if (Object.keys(data.types).length >= 2) {
-                pokeinfo1.type2 = data.types['1'].type.name.toUpperCase();
+        if (data.types.length >= 2) {
+            pokeinfo1.type2 = data.types[1].type.name.toUpperCase();
+        } else {
+            pokeinfo1.type2 = "NONE";
+        }
+
+        const responseSpecies = await fetch('https://pokeapi.co/api/v2/pokemon-species/' + name);
+        const dataSpecies = await responseSpecies.json();
+
+        pokeinfo1.color = dataSpecies.color.name.toUpperCase();
+
+        if (dataSpecies.habitat != null) {
+            pokeinfo1.habitat = dataSpecies.habitat.name.toUpperCase();
+        } else {
+            pokeinfo1.habitat = "N/A";
+        }
+
+        if (dataSpecies.evolves_from_species == null) {
+            pokeinfo1.evolution = '1';
+        } else {
+            const evoResponse = await fetch("https://pokeapi.co/api/v2/pokemon-species/" + dataSpecies.evolves_from_species.name);
+            const evo = await evoResponse.json();
+
+            if (evo.evolves_from_species == null) {
+                pokeinfo1.evolution = '2';
             } else {
-                pokeinfo1.type2 = "NONE";
-            }         
-
-            // document.querySelector(".inputHabitat").innerHTML = data
-            // document.querySelector(".inputColor").innerHTML =
-            // document.querySelector(".inputEvo").innerHTML =
-
-        }).catch((err) => {
-            console.log("Pokemon not found", err);
-        });
-    
-    fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
-        .then(response => response.json())
-        .then((data1) => {
-            //console.log(name);
-
-            pokeinfo1.color = data1.color.name.toUpperCase();
-
-            if (data1.habitat != null) {
-                pokeinfo1.habitat = data1.habitat.name.toUpperCase();
-            } else {
-                pokeinfo1.habitat = "N/A";
+                pokeinfo1.evolution = '3';
             }
+        }
+    } catch (err) {
+        console.log("Pokemon not found", err);
+    }
 
-            if (data1.evolves_from_species == null) {
-                pokeinfo1.evolution = '1';
-                document.querySelector(".inputEvo").innerHTML = pokeinfo1.evolution;
-            } else {
-                fetch("https://pokeapi.co/api/v2/pokemon-species/" + data1.evolves_from_species.name)
-                .then(response => response.json())
-                .then((evo) => {
-                    //console.log(evo.evolves_from_species);
-                    if (evo.evolves_from_species == null) {
-                        pokeinfo1.evolution = '2';
-                    } else {
-                        pokeinfo1.evolution = '3';
-                    }
-
-                }).catch((err) => {
-                    console.log("Pokemon not found", err);
-                });
-            }
-            
-            //console.log(pokeinfo1.evolution + "oop");
-
-        }).catch((err) => {
-            console.log("Pokemon not found", err);
-        });
-
-    //console.log(pokeinfo1);
-    
-    return (pokeinfo1);
+    return pokeinfo1;
 }
 
 
-    function setBoxes() {
-        var name = document.getElementById('userInput').value;
-        var url = 'https://pokeapi.co/api/v2/pokemon/';
-        
-        //console.log(name);
 
-        var info = getPokemon(name, url);
+async function setBoxes() {
+    var name = document.getElementById('userInput').value;
+    var url = 'https://pokeapi.co/api/v2/pokemon/';
 
-        console.log(info);
+    var info = await getPokemon(name, url);
 
-        console.log(info.habitat);
-        
-        document.querySelector(".inputName").innerHTML = `
+    //console.log(info);
+
+    //console.log(info.habitat);
+
+        document.querySelector(".inputimg").innerHTML = `
             <img src="${info.img}" alt="${info.name}">
             `
-        document.querySelector(".inputType1").innerHTML = info.type1;
-        document.querySelector(".inputType2").innerHTML = info.type2;
-        document.querySelector(".inputWeight").innerHTML = info.weight.toFixed(2) + "lbs";
-        document.querySelector(".inputHeight").innerHTML = info.height + "cm";
-        document.querySelector(".inputEvo").innerHTML = info.evolution;
-        document.querySelector(".inputHabitat").innerHTML = info.habitat;
-        document.querySelector(".inputColor").innerHTML = info.color;
+        document.querySelector(".inputtype1").innerHTML = info.type1;
+        document.querySelector(".inputtype2").innerHTML = info.type2;
+        document.querySelector(".inputweight").innerHTML = info.weight.toFixed(2) + "lbs";
+        document.querySelector(".inputheight").innerHTML = info.height + "cm";
+        document.querySelector(".inputevolution").innerHTML = info.evolution;
+        document.querySelector(".inputhabitat").innerHTML = info.habitat;
+        document.querySelector(".inputcolor").innerHTML = info.color;
 
-    }
+    // Rest of your code to display the information in HTML elements
+}
 
 
 
-function comparePokemon() { //creates the URL using “value”
-    var id = getRandomInt();
+
+async function comparePokemon() { //creates the URL using “value”
     var url = 'https://pokeapi.co/api/v2/pokemon/';
     var name = id;
 
-    var pokeinfo1 = getPokemon()
+    var pokeinfo1 = await getPokemon(document.getElementById('userInput').value, url);
+    var pokeinfo2 = await getPokemon(name, url);
 
-    var pokeinfo2 = {
-        name: null,
-        type1: null,
-        type2: null,
-        weight: null,
-        height: null,
-        habitat: null,
-        color: null,
-        evolution: null
-    }; 
-    
-    fetch(url + name)
-        .then(response => response.json())
-        .then((data) => {
-            //console.log(data);
-            
-            pokeinfo2.name = data.name;
-            pokeinfo2.type1 = data.types['0'].type.name.toUpperCase();
-            pokeinfo2.weight = parseInt(data.weight)/10 * 2.20462;
-            pokeinfo2.height = parseInt(data.height)*10;
+    console.log(pokeinfo1);
+    console.log(pokeinfo2);
 
-            if (Object.keys(data.types).length >= 2) {
-                pokeinfo1.type2 = data.types['1'].type.name.toUpperCase();
+    for (var key in pokeinfo1) {
+        var element = document.querySelector(".input"+key);
+
+        if (pokeinfo1[key] !== pokeinfo2[key] && key != "name") {
+
+            if (element) {
+                element.classList.add('difference1');
             } else {
-                pokeinfo1.type2 = "NONE";
+                console.error("Element with class 'input"+key+"' not found.");
             }
-
-        }).catch((err) => {
-            console.log("Pokemon not found", err);
-        });
-    
-    fetch('https://pokeapi.co/api/v2/pokemon-species/' + name)
-        .then(response => response.json())
-        .then((data1) => {
-            console.log(data1);
-
-            pokeinfo2.color = data2.color.name.toUpperCase();
-
-            if (data2.habitat != null) {
-                pokeinfo2.habitat = data2.habitat.name.toUpperCase();
+        } else {
+            if (element) {
+                element.classList.add('difference2');
             } else {
-                pokeinfo2.habitat = "N/A";
+                console.error("Element with class 'input"+key+"' not found.");
             }
-
-            if (data1.evolves_from_species == null) {
-                pokeinfo2.evolution = '1';
-                document.querySelector(".inputEvo").innerHTML = pokeinfo2.evolution;
-            } else {
-                fetch("https://pokeapi.co/api/v2/pokemon-species/" + data1.evolves_from_species.name)
-                .then(response => response.json())
-                .then((evo) => {
-                    console.log(evo.evolves_from_species);
-                    if (evo.evolves_from_species == null) {
-                        pokeinfo2.evolution = '2';
-                    } else {
-                        pokeinfo2.evolution = '3';
-                    }
-
-                    document.querySelector(".inputEvo").innerHTML = pokeinfo2.evolution;
-
-                }).catch((err) => {
-                    console.log("Pokemon not found", err);
-                });
-            }
-
-        }).catch((err) => {
-            console.log("Pokemon not found", err);
-        });
+        }
+    }
  }
 
 
 function getRandomInt() {
-    return Math.floor(Math.random() * 809) + 1;
+    return Math.floor(Math.random() * 1025) + 1;
 }
