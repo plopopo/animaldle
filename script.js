@@ -96,7 +96,6 @@ async function setBoxes() {
 
 
 async function comparePokemon() { 
-    var id = getRandomInt();
     var url = 'https://pokeapi.co/api/v2/pokemon/';
     var name = id;
 
