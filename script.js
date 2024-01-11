@@ -70,8 +70,6 @@ async function getPokemon(n, u) {
     return pokeinfo1;
 }
 
-
-
 async function setBoxes() {
     guessCount++;
 
@@ -120,7 +118,7 @@ async function setBoxes() {
     newInputHeight.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputheight guesses");
     newInputHeight.setAttribute("id", "inputheight_" + guessCount.toString());
     document.getElementById("guess_" + guessCount.toString()).appendChild(newInputHeight);
-    
+
     var newInputWeight = document.createElement("div");
     newInputWeight.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputweight guesses");
     newInputWeight.setAttribute("id", "inputweight_" + guessCount.toString());
@@ -147,15 +145,6 @@ async function comparePokemon() {
 
     console.log(pokeinfo1);
     console.log(pokeinfo2);
-
-    // //Changing the number in ability and letter clues
-    if(guessCount < 3) {
-        document.getElementById("abilityClue").innerHTML = 3 - guessCount + " Tries";
-    }
-
-    if(guessCount < 5) {
-        document.getElementById("letterClue").innerHTML = 5 - guessCount + " Tries";
-    }
 
     for (var key in pokeinfo1) {
         var element = document.getElementById("input"+key + "_" + guessCount.toString());
