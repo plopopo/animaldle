@@ -1,5 +1,7 @@
+
 const id = getRandomInt();
 var guessCount = 0;
+
 
 function guess()  {
     var userGuess = document.getElementById("userInput").value;
@@ -27,6 +29,8 @@ async function getPokemon(n, u) {
     try {
         const response = await fetch(url + name);
         const data = await response.json();
+
+        pokemon.splice(pokemon.indexOf(data.name.toLowerCase()), 1);
 
         pokeinfo1.name = data.name;
         pokeinfo1.type1 = data.types[0].type.name.toUpperCase();
@@ -71,58 +75,59 @@ async function getPokemon(n, u) {
 }
 
 async function setBoxes() {
-    guessCount++;
-
     var name = document.getElementById('userInput').value;
     var url = 'https://pokeapi.co/api/v2/pokemon/';
+    
+    if (pokemon.includes(name.toLowerCase())) {
+        guessCount++;
 
-    var info = await getPokemon(name, url);
+        var info = await getPokemon(name, url);
 
-    //Creating the new Row
-    var newRow = document.createElement("div");
-    newRow.setAttribute("class","row justify-content-md-center");
-    newRow.setAttribute("id", "guess_" + guessCount.toString());
-    document.getElementById("guesses").appendChild(newRow)
+        //Creating the new Row
+        var newRow = document.createElement("div");
+        newRow.setAttribute("class","row justify-content-md-center");
+        newRow.setAttribute("id", "guess_" + guessCount.toString());
+        document.getElementById("guesses").appendChild(newRow)
 
-    var newInputImg = document.createElement("div");
-    newInputImg.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputimg guesses");
-    newInputImg.setAttribute("id", "inputimg_" + guessCount.toString());
-    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputImg);
+        var newInputImg = document.createElement("div");
+        newInputImg.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputimg guesses");
+        newInputImg.setAttribute("id", "inputimg_" + guessCount.toString());
+        document.getElementById("guess_" + guessCount.toString()).appendChild(newInputImg);
 
-    var newInputType1 = document.createElement("div");
-    newInputType1.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputtype1 guesses");
-    newInputType1.setAttribute("id", "inputtype1_" + guessCount.toString());
-    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputType1);
+        var newInputType1 = document.createElement("div");
+        newInputType1.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputtype1 guesses");
+        newInputType1.setAttribute("id", "inputtype1_" + guessCount.toString());
+        document.getElementById("guess_" + guessCount.toString()).appendChild(newInputType1);
 
-    var newInputType2 = document.createElement("div");
-    newInputType2.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputtype2 guesses");
-    newInputType2.setAttribute("id", "inputtype2_" + guessCount.toString());
-    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputType2);
+        var newInputType2 = document.createElement("div");
+        newInputType2.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputtype2 guesses");
+        newInputType2.setAttribute("id", "inputtype2_" + guessCount.toString());
+        document.getElementById("guess_" + guessCount.toString()).appendChild(newInputType2);
 
-    var newInputHabitat = document.createElement("div");
-    newInputHabitat.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputhabitat guesses");
-    newInputHabitat.setAttribute("id", "inputhabitat_" + guessCount.toString());
-    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputHabitat);
+        var newInputHabitat = document.createElement("div");
+        newInputHabitat.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputhabitat guesses");
+        newInputHabitat.setAttribute("id", "inputhabitat_" + guessCount.toString());
+        document.getElementById("guess_" + guessCount.toString()).appendChild(newInputHabitat);
 
-    var newInputColor = document.createElement("div");
-    newInputColor.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputcolor guesses");
-    newInputColor.setAttribute("id", "inputcolor_" + guessCount.toString());
-    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputColor);
+        var newInputColor = document.createElement("div");
+        newInputColor.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputcolor guesses");
+        newInputColor.setAttribute("id", "inputcolor_" + guessCount.toString());
+        document.getElementById("guess_" + guessCount.toString()).appendChild(newInputColor);
 
-    var newInputEvolution = document.createElement("div");
-    newInputEvolution.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputevolution guesses");
-    newInputEvolution.setAttribute("id", "inputevolution_" + guessCount.toString());
-    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputEvolution);
+        var newInputEvolution = document.createElement("div");
+        newInputEvolution.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputevolution guesses");
+        newInputEvolution.setAttribute("id", "inputevolution_" + guessCount.toString());
+        document.getElementById("guess_" + guessCount.toString()).appendChild(newInputEvolution);
 
-    var newInputHeight = document.createElement("div");
-    newInputHeight.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputheight guesses");
-    newInputHeight.setAttribute("id", "inputheight_" + guessCount.toString());
-    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputHeight);
+        var newInputHeight = document.createElement("div");
+        newInputHeight.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputheight guesses");
+        newInputHeight.setAttribute("id", "inputheight_" + guessCount.toString());
+        document.getElementById("guess_" + guessCount.toString()).appendChild(newInputHeight);
 
-    var newInputWeight = document.createElement("div");
-    newInputWeight.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputweight guesses");
-    newInputWeight.setAttribute("id", "inputweight_" + guessCount.toString());
-    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputWeight);
+        var newInputWeight = document.createElement("div");
+        newInputWeight.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputweight guesses");
+        newInputWeight.setAttribute("id", "inputweight_" + guessCount.toString());
+        document.getElementById("guess_" + guessCount.toString()).appendChild(newInputWeight);
 
         document.getElementById("inputimg_" + guessCount.toString()).innerHTML = `<img src="${info.img}" alt="${info.name}">`
         document.getElementById("inputtype1_" + guessCount.toString()).innerHTML = info.type1;
@@ -132,6 +137,7 @@ async function setBoxes() {
         document.getElementById("inputevolution_" + guessCount.toString()).innerHTML = info.evolution;
         document.getElementById("inputhabitat_" + guessCount.toString()).innerHTML = info.habitat;
         document.getElementById("inputcolor_" + guessCount.toString()).innerHTML = info.color;
+    }  
 }
 
 
