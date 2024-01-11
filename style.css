@@ -104,7 +104,6 @@ body {
     text-align: center;
     visibility:hidden;
     min-height: 500px;
-    /* visibility: hidden; */
 }
 
 
@@ -118,6 +117,7 @@ body {
 .guesses img {
     object-fit: fill;
     width: 50%;
+    
 }
 
 
