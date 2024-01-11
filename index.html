@@ -31,14 +31,14 @@
             <span id = "pokemon-title">
                 <p id = "main-name">Pokédle</p>
                 <p id = "sub-name">Guess the Pokémon!</p>
-                <a id = "credits" href=credits.html class="position-absolute p-5 top-0 end-0">i</a>
+                <a id = "credits" type = "button" href=credits.html class="position-absolute p-5 top-0 end-0">i</a>
             </span>
         </div>
         <div class = "container-sm rounded p-5 my-5 " id="info">
           <div class = "row gx-5">
             <div id = "instructions" class = "col container-sm rounded-5 border border-dark p-5 my-3">
                 <h3><strong>How To Play:</strong><br><br></h3>
-                <p>Type in any pokemon from <strong>Generation 3</strong> to get started.<br></p>
+                <p>Type in any pokemon from <strong>Any Generation</strong> to get started.<br></p>
                 <p>Each aspect of your guessed pokemon (Type 1, Type 2, etc.) Will be compared to the correct pokemon.<br></p>
                 <p>(For example, if your guessed pokemon's <strong>Color(s)</strong> matches with the actual pokemon, the respective box will turn green)</p>
                 <p><strong>NOTE: Baby pokemon count as an evolution stage</strong></p>
@@ -71,7 +71,7 @@
         <div id="user" class = "autocomplete container-sm rounded-pill border border-dark w-50 p-5 my-5">
             <div class = "row justify-content-center">
               <input type="text" class = "col-9 align-self-center border rounded-pill border-dark" id="userInput" placeholder="Guess the Pokemon..."></input>
-              <button id = "userButton" class = "col-2 align-self-center container border rounded-pill border-dark overflow-hidden" onclick="setBoxes()">Go!</button>
+              <button id = "userButton" type="button" class = "col-2 align-self-center container border rounded-pill border-dark overflow-hidden" onclick="setBoxes(); comparePokemon()">Go!</button>
             </div>
         </div>
         <div class="container-fluid text-center px-4" id = "guesses">
@@ -100,34 +100,7 @@
               <div class = "col-1 p-3 mx-3 container-sm rounded border-bottom border-5 border-light">
                 Weight
               </div>
-            </div>
-            <div class="row justify-content-md-center">
-
-              <div class="col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputName guesses">              
-              </div>
-              <div class="col-1 p-3 mx-3 my-5  container-sm rounded border border-dark bg-primary inputType1">
-                <!-- grass  -->
-              </div>
-              <div class="col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputType2">
-                <!-- poison -->
-              </div>
-              <div class ="col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputHabitat"> 
-                <!-- grasslands -->
-              </div>
-              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputColor">
-                <!-- blue, purple -->
-              </div>
-              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputEvo">
-                <!-- 3 -->
-              </div>
-              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputHeight">
-                <!-- 5'11'' -->
-              </div>
-              <div class = "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary inputWeight">
-                <!-- 88.5lbs -->
-              </div>
-            </div>
-            
+            </div>       
           </div>
 
           <div class="pokemonBox">     

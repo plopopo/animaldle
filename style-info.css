@@ -2,7 +2,7 @@
 @font-face{font-family:pokemon solid;font-style:normal;font-weight:400;src:local('Pokemon Solid'),url('https://fonts.cdnfonts.com/s/17890/Pokemon Solid.woff') format('woff')}
 
 body {
-    /* background-image:url('latios-background.png'); */
+    background-image:url('latios-background.png');
     /* background-image:url('rayquaza_day-background.png'); */
     /* background-image:url('rayquaza_sunset-background.png'); */
     background-repeat: no-repeat;
