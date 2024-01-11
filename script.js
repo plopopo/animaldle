@@ -80,6 +80,7 @@ async function setBoxes() {
 
     var info = await getPokemon(name, url);
 
+    //Creating the new Row
     var newRow = document.createElement("div");
     newRow.setAttribute("class","row justify-content-md-center");
     newRow.setAttribute("id", "guess_" + guessCount.toString());
@@ -115,15 +116,15 @@ async function setBoxes() {
     newInputEvolution.setAttribute("id", "inputevolution_" + guessCount.toString());
     document.getElementById("guess_" + guessCount.toString()).appendChild(newInputEvolution);
 
-    var newInputWeight = document.createElement("div");
-    newInputWeight.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputweight guesses");
-    newInputWeight.setAttribute("id", "inputweight_" + guessCount.toString());
-    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputWeight);
-
     var newInputHeight = document.createElement("div");
     newInputHeight.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputheight guesses");
     newInputHeight.setAttribute("id", "inputheight_" + guessCount.toString());
     document.getElementById("guess_" + guessCount.toString()).appendChild(newInputHeight);
+    
+    var newInputWeight = document.createElement("div");
+    newInputWeight.setAttribute("class", "col-1 p-3 mx-3 my-5 container-sm rounded border border-dark bg-primary overflow-auto inputweight guesses");
+    newInputWeight.setAttribute("id", "inputweight_" + guessCount.toString());
+    document.getElementById("guess_" + guessCount.toString()).appendChild(newInputWeight);
 
         document.getElementById("inputimg_" + guessCount.toString()).innerHTML = `<img src="${info.img}" alt="${info.name}">`
         document.getElementById("inputtype1_" + guessCount.toString()).innerHTML = info.type1;
@@ -147,7 +148,14 @@ async function comparePokemon() {
     console.log(pokeinfo1);
     console.log(pokeinfo2);
 
-    var count = 0;
+    // //Changing the number in ability and letter clues
+    if(guessCount < 3) {
+        document.getElementById("abilityClue").innerHTML = 3 - guessCount + " Tries";
+    }
+
+    if(guessCount < 5) {
+        document.getElementById("letterClue").innerHTML = 5 - guessCount + " Tries";
+    }
 
     for (var key in pokeinfo1) {
         var element = document.getElementById("input"+key + "_" + guessCount.toString());
@@ -156,7 +164,6 @@ async function comparePokemon() {
             if (element) {
                 
                 element.classList.add('differencelazy');
-                console.log("hi");
             } else {
                 console.error("Element with class 'input"+key+"' not found.");
             }
@@ -164,7 +171,6 @@ async function comparePokemon() {
 
             if (element) {
                 element.classList.add('difference1');
-                console.log("hi");
 
             } else {
                 console.error("Element with class 'input"+key+"' not found.");
@@ -172,14 +178,12 @@ async function comparePokemon() {
         } else {
             if (element) {
                 element.classList.add('difference2');
-                console.log("hi");
 
             } else {
                 console.error("Element with class 'input"+key+"' not found.");
             }
         }
 
-        count++;
     }
  }
 
