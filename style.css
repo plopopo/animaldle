@@ -61,13 +61,20 @@ body {
 
 #instructions {
     background-color: #FFB6C1;
+    font-size:150%;
     box-shadow: 5px 5px 50px 5px;
 }
 
-#color-indicator, #clues {
+#color-indicator, #generation {
     background-color:  #D1FFFF;
     box-shadow: 5px 5px 50px 5px;
 }
+
+#generation {
+    font-size: 150%;
+    vertical-align:auto;
+}
+
 
 /*
 #info:hover {
@@ -102,13 +109,13 @@ body {
 #guesses {
     background: none;
     text-align: center;
-    visibility:hidden;
+    visibility: hidden;
     min-height: 500px;
 }
 
 
 #guesses-header {
-    visibility:visible;
+    visibility: visible; 
     color: white;
     font-size: 155%;
     font-weight:bold;
@@ -142,19 +149,34 @@ body {
     background: #f36445 !important;
     visibility: visible;
     animation: flipInY;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
+
 
 .difference2 {
     background: #45f395 !important;
     visibility: visible;
     animation: flipInY;
-    animation-duration: 2s;
+    animation-duration: 1s;
+}
+
+.difference_greater {
+    background: orange !important;
+    visibility: visible;
+    animation: flipInY;
+    animation-duration: 1s;
+}
+
+.difference_lesser {
+    background: yellow !important;
+    visibility: visible;
+    animation: flipInY;
+    animation-duration: 1s;
 }
 
 .differencelazy {
     background: #D1FFFF !important;
     visibility: visible;
     animation: flipInY;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
